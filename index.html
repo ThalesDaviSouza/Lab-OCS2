@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body style="background-color:black; color:white;">
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <h1>Lista de Compras</h1>
+      <form onsubmit="return false;"
+        style="display:flex;flex-direction:column;">
+        <span>Produtos: </span>
+        <input style="margin: 12px;" id="product" type="text" placeholder="Digite os seus sonhos...">
+        <input style="margin: 12px; margin-top:0;" id="price" type="number" placeholder="Digite o preço deles...">
+        <button id="btn">Enviar</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    function addProduct(){
+      let product = document.getElementById('product').value
+      let price = document.getElementById('price').value
+      google.script.run.saveProduct(product, price)
+    
+      document.getElementById('product').value = ''
+      document.getElementById('price').value = ''
+    }
+
+    document.getElementById('btn').addEventListener('click', addProduct)
+  </script>
+</html>
