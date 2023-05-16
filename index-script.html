@@ -1,0 +1,15 @@
+<script>
+  function addProduct(){
+    let product = {}
+    product.name = document.getElementById('product').value
+    product.price = document.getElementById('price').value
+    product.type = document.getElementById('type').value
+    google.script.run.saveProduct(product)
+
+    document.getElementById('product').value = ''
+    document.getElementById('price').value = ''
+    document.getElementById('type').value = ''
+  }
+
+  document.getElementById('btn').addEventListener('click', addProduct)
+</script>
